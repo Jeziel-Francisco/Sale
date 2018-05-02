@@ -1,16 +1,26 @@
 import { IProduct } from './product.model';
 
-class ProductService {
+import ServiceModules from '../interface-service.modules';
 
-    constructor() { }
+const models = require('./../../models');
 
-    async findById(id: number) { }
+class ProductService extends ServiceModules<IProduct> {
 
-    async create(product: IProduct) { }
+    constructor() {
+        super(
+            models.Product,
+            ['description', 'priceCust', 'priceSale', 'priceSaleMin', 'active', 'packingId'],
+            ['id', 'description', 'priceCust', 'priceSale', 'priceSaleMin', 'active', 'packingId']
+        );
+    }
 
-    async update(id: number, product: IProduct) { }
-
-    async remove(id: number) { }
+    async remove(id: number) {
+        return await models.Permissions.update({ active: false, cancellationDate: Date.now },
+            {
+                where: { id },
+                fields: ['active', 'cancellationDate']
+            });
+    }
 }
 
 export default new ProductService();

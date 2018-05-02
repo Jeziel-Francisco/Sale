@@ -4,3 +4,5 @@ interface IProductGroup {
     productId: number;
     groupId: number;
 }
+
+export { IProductGroup };

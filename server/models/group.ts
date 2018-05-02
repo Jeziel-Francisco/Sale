@@ -18,7 +18,14 @@ export default (sequelize: Sequelize, dataTypes: DataTypes) => {
         active: {
             type: dataTypes.BOOLEAN,
             defaultValue: true
-        }
+        },
+        registrationDate: {
+            type: dataTypes.DATE,
+            defaultValue: Date.now
+        },
+        cancellationDate: {
+            type: dataTypes.DATE,
+        },
     }, {
             tableName: 'Group'
         });

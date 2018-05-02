@@ -1,6 +1,6 @@
 const CONFIG = {
     env: 'development',
-    serverPort: 3000,
+    serverPort: 21313,
     host: 'mysql.api-sale.kinghost.net',
     username: 'apisale',
     password: '010065363je',

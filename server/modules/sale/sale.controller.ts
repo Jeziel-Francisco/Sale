@@ -1,17 +1,13 @@
 import { Request, Response } from 'express';
 
 import SaleBusiness from './sale.business';
+import ControllerModules from '../interface-controller.modules';
 
-class SaleController {
-    constructor() { }
+class SaleController extends ControllerModules {
+    constructor() {
+        super(SaleBusiness);
+    }
 
-    findById(req: Request, res: Response): void { }
-
-    create(req: Request, res: Response): void { }
-
-    update(req: Request, res: Response): void { }
-
-    remove(req: Request, res: Response): void { }
 
 }
 

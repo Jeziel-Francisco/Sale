@@ -1,25 +1,14 @@
 import { Request, Response } from 'express';
 
 import CompanyBusiness from './company.business';
+import ControllerModules from '../interface-controller.modules';
 
-class CompanyController {
-    constructor() { }
+class CompanyController extends ControllerModules {
 
-    findById(req: Request, res: Response) {
-        CompanyBusiness.findById(res, req.params.id);
-    }
-
-    create(req: Request, res: Response) {
-        CompanyBusiness.create(res, req.body);
-    }
-
-    update(req: Request, res: Response) {
-        CompanyBusiness.update(res, req.params.id, req.body);
-    }
-
-    remove(req: Request, res: Response) {
-        CompanyBusiness.remove(res, req.params.id);
+    constructor() {
+        super(CompanyBusiness);
     }
 }
+
 
 export default new CompanyController();

@@ -9,3 +9,5 @@ class ProviderController extends ControllerModules {
         super(ProviderBusiness);
     }
 }
+
+export default new ProviderController();

@@ -1,23 +1,15 @@
 import { IPermissions } from './permissions.model';
+import ServiceModules from '../interface-service.modules';
 
 const models = require('./../../models');
 
-class PermissionsService {
-    constructor() { }
-
-    async findById(id: number): Promise<IPermissions> {
-        return await models.Permissions.findOne({ where: { id } });
-    }
-
-    async create(permissions: IPermissions) {
-        return await models.Permissions.create(permissions);
-    }
-
-    async update(id: number, permissions: IPermissions) {
-        return await models.Permissions.update(permissions, {
-            where: { id },
-            fields: ['active', 'event', 'page']
-        });
+class PermissionsService extends ServiceModules<IPermissions>{
+    constructor() {
+        super(
+            models.Permissions,
+            ['active', 'event', 'page'],
+            ['id', 'active', 'registrationDate', 'cancellationDate', 'event', 'page']
+        );
     }
 
     async remove(id: number) {

@@ -1,20 +1,11 @@
 import { Request, Response } from 'express';
 
 import StateBusiness from './state.business';
+import ControllerModules from '../interface-controller.modules';
 
-class StateController {
-    constructor() { }
-
-    findById(req: Request, res: Response) {
-        StateBusiness.findById(res, req.params.id);
-    }
-
-    create(req: Request, res: Response) {
-        StateBusiness.create(res, req.body);
-    }
-
-    update(req: Request, res: Response) {
-        StateBusiness.update(res, req.params.id, req.body);
+class StateController extends ControllerModules {
+    constructor() {
+        super(StateBusiness);
     }
 }
 

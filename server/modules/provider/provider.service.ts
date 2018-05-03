@@ -8,8 +8,8 @@ class ProviderService extends ServiceModules<IProvider>{
     constructor() {
         super(
             models.Provider,
-            ['name', 'nameFantasy', 'registrationState', 'active', 'registrationDate', 'cancellationDate', 'identification'],
-            ['name', 'nameFantasy', 'registrationState', 'active', 'registrationDate', 'cancellationDate', 'identification', 'companyId']
+            ['name', 'nameFantasy', 'registrationState', 'registrationMunicipal', 'active', 'registrationDate', 'cancellationDate', 'identification'],
+            ['id', 'name', 'nameFantasy', 'registrationState', 'registrationMunicipal', 'active', 'registrationDate', 'cancellationDate', 'identification', 'companyId']
         );
     }
 

@@ -21,7 +21,9 @@ export default (sequelize: Sequelize, dataTypes: DataTypes) => {
         groupId: {
             type: dataTypes.INTEGER
         }
-    }, {});
+    }, {
+            tableName: 'Product_Group'
+        });
 
     return ProductGroup;
 }

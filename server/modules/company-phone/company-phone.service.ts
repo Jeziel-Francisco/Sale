@@ -1,27 +1,16 @@
 import { ICompanyPhone } from './company-phone.model';
 
+import ServiceModules from '../interface-service.modules';
+
 const models = require('./../../models');
 
-class CompanyPhoneService {
-    constructor() { }
-
-    async findById(id: number) {
-        return await models.CompanyPhone.findOne({ where: { id } });
-    }
-
-    async create(companyPhone: ICompanyPhone) {
-        return await models.CompanyPhone.create(companyPhone);
-    }
-
-    async update(id: number, companyPhone: ICompanyPhone) {
-        return await models.CompanyPhone.update(companyPhone, {
-            where: { id },
-            fields: ['phone', 'contact']
-        });
-    }
-
-    async remove(id: number) {
-        return await models.CompanyPhone.destroy({ where: { id } });
+class CompanyPhoneService extends ServiceModules<ICompanyPhone> {
+    constructor() {
+        super(
+            models.CompanyPhone,
+            ['phone', 'contact'],
+            ['id', 'phone', 'contact', 'companyId']
+        );
     }
 }
 

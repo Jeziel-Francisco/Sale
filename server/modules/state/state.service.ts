@@ -1,23 +1,16 @@
 import { IState } from './state.model';
 
+import ServiceModules from '../interface-service.modules';
+
 const models = require('./../../models');
 
-class StateService {
-    constructor() { }
-
-    async findById(id: number) {
-        return await models.State.findOne({ where: { id } });
-    }
-
-    async create(state: IState) {
-        return await models.State.create(state);
-    }
-
-    async update(id: number, state: IState) {
-        return await models.State.update(state, {
-            where: { id },
-            fields: ['initials', 'description']
-        });
+class StateService extends ServiceModules<IState>{
+    constructor() {
+        super(
+            models.State,
+            ['initials', 'description'],
+            ['id', 'initials', 'description']
+        );
     }
 }
 

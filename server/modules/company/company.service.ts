@@ -1,34 +1,27 @@
 import { ICompany } from './company.model';
 
+import ServiceModules from '../interface-service.modules';
+
 const models = require('./../../models');
 
-class CompanyService {
-    constructor() { }
-
-    async findById(id: number) {
-        return await models.Company.findOne({ where: { id } });
-    }
-
-    async create(company: ICompany) {
-        return await models.Company.create(company);
-    }
-
-    async update(id: number, company: ICompany) {
-        return await models.Company.update(company, {
-            where: { id },
-            fields: ['active', 'name', 'nameFantasy', 'registrationState', 'registrationMunicipal', 'identification']
-        });
+class CompanyService extends ServiceModules<ICompany>{
+    constructor() {
+        super(
+            models.Company,
+            ['name', 'nameFantasy', 'registrationState', 'registrationMunicipal', 'active', 'registrationDate', 'cancellationDate', 'identification'],
+            ['id', 'name', 'nameFantasy', 'registrationState', 'registrationMunicipal', 'active', 'registrationDate', 'cancellationDate', 'identification']
+        );
     }
 
     async remove(id: number) {
         return await models.Company.update({
-            active: false,
-            cancellationDate: Date.now
+            cancellationDate: Date.now,
+            active: false
         }, {
                 where: { id },
-                fields: ['active', 'cancellationDate']
+                fields: ['cancellationDate', 'active']
             });
     }
 }
 
-export default new CompanyService(); 
+export default new CompanyService();

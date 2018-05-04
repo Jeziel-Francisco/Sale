@@ -5,6 +5,9 @@ var Relations = function (model) {
     // Relacionamento entre User e Company
     model.Company.hasMany(model.User, { foreignKey: 'companyId' });
     model.User.belongsTo(model.Company, { foreignKey: 'companyId' });
+    // Relacionamento entre  Companye Tipo de Document
+    model.Company.hasMany(model.TypeDocument, { foreignKey: 'companyId' });
+    model.TypeDocument.belongsTo(model.Company, { foreignKey: 'companyId' });
     // Relacionamento entre Company e Address
     model.Company.belongsToMany(model.Address, { through: { model: model.CompanyAddress }, foreignKey: 'companyId' });
     model.Address.belongsToMany(model.Company, { through: { model: model.CompanyAddress }, foreignKey: 'addressId' });
@@ -26,7 +29,6 @@ var Relations = function (model) {
     // Relacionamento entre Client e Phone
     model.Client.hasMany(model.ClientPhone, { foreignKey: 'clientId' });
     model.ClientPhone.belongsTo(model.Client, { foreignKey: 'clientId' });
-    //--------------------------------------------------------------------------------
     // Relacionamento entre Fornecedor e Telefone
     model.Provider.hasMany(model.ProviderPhone, { foreignKey: 'providerId' });
     model.ProviderPhone.belongsTo(model.Provider, { foreignKey: 'providerId' });
@@ -63,6 +65,12 @@ var Relations = function (model) {
     // Relacionamento entre Receber e Pagamento do Receber
     model.Receive.hasMany(model.ReceivePayment, { foreignKey: 'receiveId' });
     model.ReceivePayment.belongsTo(model.Receive, { foreignKey: 'receiveId' });
+    // Relacionamento entre Receber e Typo de documento
+    model.Receive.hasMany(model.TypeDocument, { foreignKey: 'typeDocumentId' });
+    model.TypeDocument.belongsTo(model.Receive, { foreignKey: 'typeDocumentId' });
+    // Relacionamento entre Pagamento do receber e Typo de documento
+    model.ReceivePayment.hasMany(model.TypeDocument, { foreignKey: 'typeDocumentId' });
+    model.TypeDocument.belongsTo(model.ReceivePayment, { foreignKey: 'typeDocumentId' });
     // Relacionamento entre Receber e Cliente
     model.Client.hasMany(model.Receive, { foreignKey: 'clientId' });
     model.Receive.belongsTo(model.Client, { foreignKey: 'clientId' });

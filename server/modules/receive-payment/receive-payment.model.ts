@@ -7,6 +7,7 @@ interface IReceivePayment {
     priceDiscount: number;
     active: boolean;
     receiveId: number;
+    typeDocumentId: number;
 }
 
 export { IReceivePayment };

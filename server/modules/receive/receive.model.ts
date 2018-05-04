@@ -13,6 +13,7 @@ interface IReceive {
     priceInterest: number; //Juros
     clientId: number;
     saleId: number;
+    typeDocumentId: number;
 }
 
 export { IReceive };

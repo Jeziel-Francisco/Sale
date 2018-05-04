@@ -21,6 +21,8 @@ exports.default = (function (sequelize, dataTypes) {
         groupId: {
             type: dataTypes.INTEGER
         }
-    }, {});
+    }, {
+        tableName: 'Product_Group'
+    });
     return ProductGroup;
 });

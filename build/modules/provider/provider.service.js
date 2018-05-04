@@ -50,7 +50,7 @@ var models = require('./../../models');
 var ProviderService = /** @class */ (function (_super) {
     __extends(ProviderService, _super);
     function ProviderService() {
-        return _super.call(this, models.Provider, ['name', 'nameFantasy', 'registrationState', 'active', 'registrationDate', 'cancellationDate', 'identification'], ['name', 'nameFantasy', 'registrationState', 'active', 'registrationDate', 'cancellationDate', 'identification', 'companyId']) || this;
+        return _super.call(this, models.Provider, ['name', 'nameFantasy', 'registrationState', 'registrationMunicipal', 'active', 'registrationDate', 'cancellationDate', 'identification'], ['id', 'name', 'nameFantasy', 'registrationState', 'registrationMunicipal', 'active', 'registrationDate', 'cancellationDate', 'identification', 'companyId']) || this;
     }
     ProviderService.prototype.remove = function (id) {
         return __awaiter(this, void 0, void 0, function () {

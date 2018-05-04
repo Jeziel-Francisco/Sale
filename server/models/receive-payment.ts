@@ -34,6 +34,9 @@ export default (sequelize: Sequelize, dataTypes: DataTypes) => {
         },
         receiveId: {
             type: dataTypes.INTEGER
+        },
+        typeDocumentId: {
+            type: dataTypes.INTEGER
         }
     }, {
             tableName: 'Receive_Payment'

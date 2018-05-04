@@ -1,23 +1,15 @@
 import { IClient } from './client.model';
+import ServiceModules from '../interface-service.modules';
 
 const models = require('./../../models');
 
-class ClientService {
-    constructor() { }
-
-    async findById(id: number) {
-        return await models.Client.findOne({ where: { id } });
-    }
-
-    async create(client: IClient) {
-        return await models.Client.create(client);
-    }
-
-    async update(id: number, client: IClient) {
-        return await models.Client.update(client, {
-            where: { id },
-            fields: ['name', 'nameFantasy', 'registrationState', 'active', 'registrationMunicipal', 'identification']
-        });
+class ClientService extends ServiceModules<IClient> {
+    constructor() {
+        super(
+            models.Client,
+            ['name', 'nameFantasy', 'registrationState', 'active', 'registrationMunicipal', 'identification'],
+            ['id', 'name', 'nameFantasy', 'registrationState', 'registrationDate', 'cancellationDate', 'active', 'registrationMunicipal', 'identification']
+        );
     }
 
     async remove(id: number) {

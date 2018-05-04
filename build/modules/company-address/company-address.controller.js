@@ -1,21 +1,22 @@
 "use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 Object.defineProperty(exports, "__esModule", { value: true });
 var company_address_business_1 = require("./company-address.business");
-var CompanyAddressController = /** @class */ (function () {
+var interface_controller_modules_1 = require("../interface-controller.modules");
+var CompanyAddressController = /** @class */ (function (_super) {
+    __extends(CompanyAddressController, _super);
     function CompanyAddressController() {
+        return _super.call(this, company_address_business_1.default) || this;
     }
-    CompanyAddressController.prototype.findById = function (req, res) {
-        company_address_business_1.default.findById(res, req.params.id);
-    };
-    CompanyAddressController.prototype.create = function (req, res) {
-        company_address_business_1.default.create(res, req.body);
-    };
-    CompanyAddressController.prototype.update = function (req, res) {
-        company_address_business_1.default.update(res, req.params.id, req.body);
-    };
-    CompanyAddressController.prototype.remove = function (req, res) {
-        company_address_business_1.default.remove(res, req.params.id);
-    };
     return CompanyAddressController;
-}());
+}(interface_controller_modules_1.default));
 exports.default = new CompanyAddressController();

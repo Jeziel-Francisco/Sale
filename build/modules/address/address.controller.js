@@ -1,21 +1,22 @@
 "use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 Object.defineProperty(exports, "__esModule", { value: true });
 var address_business_1 = require("./address.business");
-var AddressController = /** @class */ (function () {
+var interface_controller_modules_1 = require("../interface-controller.modules");
+var AddressController = /** @class */ (function (_super) {
+    __extends(AddressController, _super);
     function AddressController() {
+        return _super.call(this, address_business_1.default) || this;
     }
-    AddressController.prototype.findById = function (req, res) {
-        address_business_1.default.findById(res, req.params.id);
-    };
-    AddressController.prototype.create = function (req, res) {
-        address_business_1.default.create(res, req.body);
-    };
-    AddressController.prototype.update = function (req, res) {
-        address_business_1.default.update(res, req.params.id, req.body);
-    };
-    AddressController.prototype.remove = function (req, res) {
-        address_business_1.default.remove(res, req.params.id);
-    };
     return AddressController;
-}());
+}(interface_controller_modules_1.default));
 exports.default = new AddressController();

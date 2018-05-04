@@ -7,8 +7,8 @@ class ReceiveService extends ServiceModules<IReceive>{
     constructor() {
         super(
             models.Receive,
-            ['history', 'portion', 'priceTotal', 'balance', 'active', 'emissionDate', 'maturityDate', 'paymentDate', 'priceInterest'],
-            ['id', 'history', 'portion', 'priceTotal', 'balance', 'active', 'registrationDate', 'cancellationDate', 'emissionDate', 'maturityDate', 'paymentDate', 'priceInterest', 'clientId', 'saleId']
+            ['history', 'portion', 'priceTotal', 'balance', 'active', 'emissionDate', 'maturityDate', 'paymentDate', 'priceInterest', 'typeDocumentId'],
+            ['id', 'history', 'portion', 'priceTotal', 'balance', 'active', 'registrationDate', 'cancellationDate', 'emissionDate', 'maturityDate', 'paymentDate', 'priceInterest', 'clientId', 'saleId', 'typeDocumentId']
         );
     }
 

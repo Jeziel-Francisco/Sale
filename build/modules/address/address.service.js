@@ -1,4 +1,14 @@
 "use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
@@ -35,43 +45,13 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var interface_service_modules_1 = require("../interface-service.modules");
 var models = require('./../../models');
-var AddressService = /** @class */ (function () {
+var AddressService = /** @class */ (function (_super) {
+    __extends(AddressService, _super);
     function AddressService() {
+        return _super.call(this, models.Address, ['place', 'zipCode', 'active', 'neighborhood'], ['id', 'place', 'zipCode', 'active', 'registrationDate', 'cancellationDate', 'neighborhood']) || this;
     }
-    AddressService.prototype.findById = function (id) {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, models.Address.findOne({ where: { id: id } })];
-                    case 1: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    AddressService.prototype.create = function (address) {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, models.Address.create(address)];
-                    case 1: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    AddressService.prototype.update = function (id, address) {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, models.Address.update(address, {
-                            where: { id: id },
-                            fields: ['place', 'zipCode', 'active', 'neighborhood']
-                        })];
-                    case 1: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
     AddressService.prototype.remove = function (id) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
@@ -89,5 +69,5 @@ var AddressService = /** @class */ (function () {
         });
     };
     return AddressService;
-}());
+}(interface_service_modules_1.default));
 exports.default = new AddressService();

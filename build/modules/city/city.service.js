@@ -1,4 +1,14 @@
 "use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
@@ -35,43 +45,13 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var interface_service_modules_1 = require("../interface-service.modules");
 var models = require('./../../models');
-var CityService = /** @class */ (function () {
+var CityService = /** @class */ (function (_super) {
+    __extends(CityService, _super);
     function CityService() {
+        return _super.call(this, models.City, ['name', 'code', 'active'], ['id', 'registrationDate', 'cancellationDate', 'name', 'code', 'active']) || this;
     }
-    CityService.prototype.findById = function (id) {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, models.City.findOne({ where: { id: id } })];
-                    case 1: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    CityService.prototype.create = function (city) {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, models.City.create(city)];
-                    case 1: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    CityService.prototype.update = function (id, city) {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, models.City.update(city, {
-                            where: { id: id },
-                            fields: ['name', 'code', 'active']
-                        })];
-                    case 1: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
     CityService.prototype.remove = function (id) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
@@ -89,5 +69,5 @@ var CityService = /** @class */ (function () {
         });
     };
     return CityService;
-}());
+}(interface_service_modules_1.default));
 exports.default = new CityService();

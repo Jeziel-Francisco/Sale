@@ -1,21 +1,22 @@
 "use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 Object.defineProperty(exports, "__esModule", { value: true });
 var client_address_business_1 = require("./client-address.business");
-var ClientAddressController = /** @class */ (function () {
+var interface_controller_modules_1 = require("../interface-controller.modules");
+var ClientAddressController = /** @class */ (function (_super) {
+    __extends(ClientAddressController, _super);
     function ClientAddressController() {
+        return _super.call(this, client_address_business_1.default) || this;
     }
-    ClientAddressController.prototype.findById = function (req, res) {
-        client_address_business_1.default.findById(res, req.params.id);
-    };
-    ClientAddressController.prototype.create = function (req, res) {
-        client_address_business_1.default.create(res, req.body);
-    };
-    ClientAddressController.prototype.update = function (req, res) {
-        client_address_business_1.default.update(res, req.params.id, req.body);
-    };
-    ClientAddressController.prototype.remove = function (req, res) {
-        client_address_business_1.default.remove(res, req.params.id);
-    };
     return ClientAddressController;
-}());
+}(interface_controller_modules_1.default));
 exports.default = new ClientAddressController();

@@ -7,8 +7,8 @@ class ReceivePaymentService extends ServiceModules<IReceivePayment>{
     constructor() {
         super(
             models.ReceivePayment,
-            ['paymentDate', 'pricePaid', 'priceDiscount', 'active', 'receiveId'],
-            ['id', 'registrationDate', 'cancellationDate', 'paymentDate', 'pricePaid', 'priceDiscount', 'active', 'receiveId']
+            ['paymentDate', 'pricePaid', 'priceDiscount', 'active', 'receiveId', 'typeDocumentId'],
+            ['id', 'registrationDate', 'cancellationDate', 'paymentDate', 'pricePaid', 'priceDiscount', 'active', 'receiveId', 'typeDocumentId']
         );
     }
 

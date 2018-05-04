@@ -6,7 +6,6 @@ var http = require("http");
 var models = require('./models');
 var server = http.createServer(api_1.default);
 models.sequelize.sync().then(function () {
-    console.log('then');
     server.listen(process.env.PORT_BUILD_SERVER || config_1.default.serverPort);
     server.on('listening', function () { return console.log("Servidor rodando na porta " + (process.env.PORT_BUILD_SERVER || config_1.default.serverPort)); });
     server.on('error', function (error) { return console.log("Ocorreu Erro " + error); });

@@ -19,3 +19,4 @@ var ProviderController = /** @class */ (function (_super) {
     }
     return ProviderController;
 }(interface_controller_modules_1.default));
+exports.default = new ProviderController();

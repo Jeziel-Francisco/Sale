@@ -1,23 +1,15 @@
 import { IAddress } from './address.model';
+import ServiceModules from '../interface-service.modules';
 
 const models = require('./../../models');
 
-class AddressService {
-    constructor() { }
-
-    async findById(id: number) {
-        return await models.Address.findOne({ where: { id } });
-    }
-
-    async create(address: IAddress) {
-        return await models.Address.create(address);
-    }
-
-    async update(id: number, address: IAddress) {
-        return await models.Address.update(address, {
-            where: { id },
-            fields: ['place', 'zipCode', 'active', 'neighborhood']
-        });
+class AddressService extends ServiceModules<IAddress>{
+    constructor() {
+        super(
+            models.Address,
+            ['place', 'zipCode', 'active', 'neighborhood'],
+            ['id', 'place', 'zipCode', 'active', 'registrationDate', 'cancellationDate', 'neighborhood']
+        );
     }
 
     async remove(id: number) {
@@ -31,4 +23,4 @@ class AddressService {
     }
 }
 
-export default new AddressService(); 
+export default new AddressService();

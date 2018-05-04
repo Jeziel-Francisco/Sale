@@ -1,27 +1,15 @@
 import { IClientPhone } from './client-phone.model';
+import ServiceModules from '../interface-service.modules';
 
 const models = require('./../../models');
 
-class ClientPhoneService {
-    constructor() { }
-
-    async findById(id: number) {
-        return await models.ClientPhone.findOne({ where: { id } });
-    }
-
-    async create(phoneClient: IClientPhone) {
-        return await models.ClientPhone.create(phoneClient);
-    }
-
-    async update(id: number, phoneClient: IClientPhone) {
-        return await models.ClientPhone.update(phoneClient, {
-            where: { id },
-            fields: ['phone', 'contact']
-        });
-    }
-
-    async remove(id: number) {
-        return await models.ClientPhone.remove({ where: { id } });
+class ClientPhoneService extends ServiceModules<IClientPhone>{
+    constructor() {
+        super(
+            models.ClientPhone,
+            ['phone', 'contact'],
+            ['id', 'phone', 'contact']
+        )
     }
 }
 
